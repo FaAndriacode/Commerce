@@ -1,4 +1,4 @@
-package com.example.spring_acces_base.entity;
+package com.example.spring_acces_base.entity.fournisseur;
 
 public class Fournisseur {
     int idFournisseur;
