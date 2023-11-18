@@ -6,6 +6,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/logo/favicon.png" />
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="ajax/login.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -22,22 +23,25 @@
                                         <img src="assets/images/flower.png" style="width: 185px;" alt="logo">
                                         <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                                     </div> 
-                                    <form>
+                                    <form id="formD">
                                         <p>Please login to your account</p>          
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
                                             <label for="floatingInput">Email address</label>
                                         </div>  
 
                                         <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="floatingPassword" placeholder="name@example.com">
+                                            <input type="password" class="form-control" id="password" placeholder="name@example.com" name="password">
                                             <label for="floatingPassword">Password</label>
                                         </div>   
 
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <div class="d-grid gap-2 mb-3">
-                                                <button class="btn btn-lg fa-lg gradient-custom-2 text-white" type="button">Login</button>
+                                                <button class="btn btn-lg fa-lg gradient-custom-2 text-white" type="submit">Login</button>
                                             </div>
+
+                                            <div id="notification"></div>  
+                                                                        
                                             <a class="text-muted" href="#!">Forgot password?</a>
                                         </div>     
 

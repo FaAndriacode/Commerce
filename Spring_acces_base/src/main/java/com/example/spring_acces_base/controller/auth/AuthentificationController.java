@@ -1,17 +1,18 @@
 package com.example.spring_acces_base.controller.auth;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring_acces_base.entity.departement.services.ChefDeptService;
-import com.example.spring_acces_base.entity.service.ChefServices;
 import com.example.spring_acces_base.entity.service.services.ChefServicesService;
 import com.example.spring_acces_base.response.Response;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin
 public class AuthentificationController {
     private ChefDeptService userDepartement;
     private ChefServicesService userService;
@@ -26,23 +27,27 @@ public class AuthentificationController {
         Response response = new Response();
         Object temp = null;
 
-        System.out.println(email);
-        System.out.println(password);
+        System.out.println("👉 Value --> "+email+"  "+password);
 
         if (etat == 1) {
-            System.out.println("chef de departement");
+            System.out.println("chef de departement connecter");
             temp = this.userDepartement.findByEmailAndPasswords(email, password);
-            response.setErreur(false);
-            response.setDonner(temp);
-            return response; // renvoie une réponse OK avec le corps de la réponse
+            if (temp != null) {
+                response.setErreur(false);
+                response.setDonner(temp);
+            }else{
+                response.setDonner(temp);
+            }
         } else if (etat == 0) {
-            System.out.println("chef de service");
+            System.out.println("chef de service connecter");
             temp = this.userService.findByEmailAndPasswords(email, password);
-            response.setErreur(false);
-            response.setDonner(temp);
-            return response; // renvoie une réponse OK avec le corps de la réponse
+            if (temp != null) {
+                response.setErreur(false);
+                response.setDonner(temp);
+            }else{
+                response.setDonner(temp);
+            }
         }
-
         return response;
     }
 }
