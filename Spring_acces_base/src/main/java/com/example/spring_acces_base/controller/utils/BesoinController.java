@@ -1,11 +1,16 @@
 package com.example.spring_acces_base.controller.utils;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.spring_acces_base.entity.besoin.Besoin;
 import com.example.spring_acces_base.entity.besoin.services.BesoinService;
 import com.example.spring_acces_base.response.Response;
 
@@ -75,6 +80,18 @@ public class BesoinController {
         response.setErreur(false);
         
         return response;
+    }
+
+    @PostMapping("/insert")
+    public ResponseEntity<String> insertBesoin(@RequestBody Besoin besoin) {
+        try {
+            Besoin newBesoin = besoinService.insertBesoin(besoin);
+            return ResponseEntity.ok("Besoin inserted successfully with ID: " + newBesoin.getIdBesoin());
+        } catch (Exception e) {
+            // Log the exception for debugging
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error inserting Besoin");
+        }
     }
     
 }

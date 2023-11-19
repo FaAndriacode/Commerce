@@ -58,10 +58,11 @@ CREATE TABLE Article (
 
 -- Création de la table "FournArticle"
 CREATE TABLE FournArticle (
-    idFournisseur INTEGER,
-    idArticle INTEGER,
+    id_fourn_article INTEGER DEFAULT nextval('n_id_fourn_article') PRIMARY KEY,
+    id_fournisseur INTEGER,
+    id_article INTEGER,
     prixunitaire DOUBLE PRECISION,
     Quantite DOUBLE PRECISION,
-    FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur),
-    FOREIGN KEY (idArticle) REFERENCES Article(idArticle)
+    FOREIGN KEY (id_fournisseur) REFERENCES Fournisseur(idFournisseur),
+    FOREIGN KEY (id_article) REFERENCES Article(idArticle)
 );

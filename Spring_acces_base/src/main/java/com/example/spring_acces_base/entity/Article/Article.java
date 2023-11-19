@@ -1,8 +1,11 @@
-package com.example.spring_acces_base.entity.Article;
+package com.example.spring_acces_base.entity.article;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -10,6 +13,8 @@ import jakarta.persistence.Table;
 public class Article {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "article_sequence")
+    @SequenceGenerator(name = "article_sequence", sequenceName = "n_idarticle", allocationSize = 1)
     @Column(name = "idarticle")
     int idArticle;
 

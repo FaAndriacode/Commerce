@@ -16,3 +16,4 @@ DROP SEQUENCE IF EXISTS n_idUserDept;
 DROP SEQUENCE IF EXISTS n_idFournisseur;
 DROP SEQUENCE IF EXISTS n_idBesoin;
 DROP SEQUENCE IF EXISTS n_idArticle;
+drop sequence if exists n_id_fourn_article;

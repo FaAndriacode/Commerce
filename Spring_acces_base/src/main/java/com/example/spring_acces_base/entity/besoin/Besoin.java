@@ -2,7 +2,7 @@ package com.example.spring_acces_base.entity.besoin;
 
 import java.sql.Date;
 
-import com.example.spring_acces_base.entity.Article.Article;
+import com.example.spring_acces_base.entity.article.Article;
 import com.example.spring_acces_base.entity.service.Services;
 
 import jakarta.persistence.Column;
