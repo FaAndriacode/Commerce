@@ -1,9 +1,25 @@
 package com.example.spring_acces_base.entity.fournisseur;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "fournisseur")
 public class Fournisseur {
+    
+    @Id
+    @Column(name = "idfournisseur")
     int idFournisseur;
+
+    @Column(name = "nom")
     String nom;
+
+    @Column(name = "adresse")
     String adresse;
+
+    @Column(name = "email")
     String email;
 
     public int getIdFournisseur() {
