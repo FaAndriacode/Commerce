@@ -5,3 +5,4 @@ CREATE SEQUENCE n_idUserDept;
 CREATE SEQUENCE n_idFournisseur;
 CREATE SEQUENCE n_idBesoin;
 CREATE SEQUENCE n_idArticle;
+CREATE SEQUENCE n_id_fourn_article;

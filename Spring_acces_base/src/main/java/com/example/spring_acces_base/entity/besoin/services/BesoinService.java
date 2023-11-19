@@ -24,5 +24,9 @@ public class BesoinService implements BesoinRemote {
         besoin.setEtat(etat);
         return this.besoinRepository.save(besoin);
     }
+
+    public Besoin insertBesoin(Besoin besoin) {
+        return besoinRepository.save(besoin);
+    }
     
 }

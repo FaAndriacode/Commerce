@@ -41,7 +41,7 @@ INSERT INTO Besoin (idArticle, Quantite, Date_creation, etat, idServices) VALUES
 (3, 20, '2023-11-18', 1, 3);
 
 -- Exemples de données pour la table "FournArticle"
-INSERT INTO FournArticle (idFournisseur, idArticle, prixunitaire, Quantite) VALUES
+INSERT INTO FournArticle (id_fournisseur, id_article, prixunitaire, Quantite) VALUES
 (1, 1, 50.0, 100),
 (2, 2, 30.0, 150),
 (3, 3, 25.0, 200);
