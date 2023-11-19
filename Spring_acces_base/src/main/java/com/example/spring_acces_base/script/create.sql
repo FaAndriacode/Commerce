@@ -52,6 +52,7 @@ CREATE TABLE Besoin (
 -- Creation de la table Article
 CREATE TABLE Article (
     idArticle INTEGER DEFAULT nextval('n_idArticle') PRIMARY KEY,
+    nom VARCHAR(100),
     unite VARCHAR(100)
 );
 

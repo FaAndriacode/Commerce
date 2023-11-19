@@ -29,10 +29,10 @@ INSERT INTO Fournisseur (nom, adresse, Email) VALUES
 ('Fournisseur C', 'Adresse C', 'fournisseurC@email.com');
 
 -- Exemples de données pour la table "Article"
-INSERT INTO Article (unite) VALUES
-('Unité A'),
-('Unité B'),
-('Unité C');
+INSERT INTO Article (nom,unite) VALUES
+('Vary','Unité A'),
+('Paty','Unité B'),
+('Poulet','Unité C');
 
 -- Exemples de données pour la table "Besoin"
 INSERT INTO Besoin (idArticle, Quantite, Date_creation, etat, idServices) VALUES
