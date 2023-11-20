@@ -25,8 +25,9 @@ public class BesoinService implements BesoinRemote {
         return this.besoinRepository.save(besoin);
     }
 
-    public Besoin insertBesoin(Besoin besoin) {
-        return besoinRepository.save(besoin);
+    @Override
+    public Besoin save(Besoin besoin) {
+        return this.besoinRepository.save(besoin);
     }
     
 }

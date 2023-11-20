@@ -1,11 +1,10 @@
 package com.example.spring_acces_base.controller.utils;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import java.sql.Date;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +29,7 @@ public class BesoinController {
         Object temp = null;
 
         System.out.println("👉 Value --> "+etat);
-        /*
+        /*                                                              
          * etat = 1 besion en attente
          * etat = 2 besoin refuser
          * etat = 3 besoin confirmer
@@ -82,16 +81,23 @@ public class BesoinController {
         return response;
     }
 
-    @PostMapping("/insert")
-    public ResponseEntity<String> insertBesoin(@RequestBody Besoin besoin) {
-        try {
-            Besoin newBesoin = besoinService.insertBesoin(besoin);
-            return ResponseEntity.ok("Besoin inserted successfully with ID: " + newBesoin.getIdBesoin());
-        } catch (Exception e) {
-            // Log the exception for debugging
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error inserting Besoin");
-        }
+    @PostMapping("/creation")
+    public Response insertBesoin(@RequestParam int idarticle, @RequestParam double quantite, @RequestParam Date date_creation, @RequestParam int idservices){
+        Response response = new Response();
+        Object temp = null;
+
+        System.out.println("👉 creation de besoin idarticle --> "+idarticle);
+        System.out.println("👉 creation de besoin quantite --> "+quantite);
+        System.out.println("👉 creation de besoin date_creation --> "+date_creation);
+        System.out.println("👉 creation de besoin idservices --> "+idservices);
+
+        Besoin besoin = new Besoin(idarticle, idservices ,quantite, date_creation, 1);
+        
+        temp = this.besoinService.save(besoin);
+        response.setDonner(temp);
+        response.setErreur(false);
+        
+        return response;
     }
     
 }

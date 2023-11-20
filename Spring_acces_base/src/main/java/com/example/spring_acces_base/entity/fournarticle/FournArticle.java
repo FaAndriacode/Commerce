@@ -1,6 +1,6 @@
 package com.example.spring_acces_base.entity.fournarticle;
 
-import com.example.spring_acces_base.entity.article.Article;
+import com.example.spring_acces_base.entity.Article.Article;
 import com.example.spring_acces_base.entity.fournisseur.Fournisseur;
 
 import jakarta.persistence.Column;
@@ -19,16 +19,22 @@ public class FournArticle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fournarticle_sequence")
-    @SequenceGenerator(name = "fournarticle_sequence", sequenceName = "n_id_fourn_article", allocationSize = 1)
-    @Column(name = "idFournArticle")
+    @SequenceGenerator(name = "fournarticle_sequence", sequenceName = "n_idfournarticle", allocationSize = 1)
+    @Column(name = "idfournarticle")
     int idfournarticle;
 
-    @ManyToOne
-    @JoinColumn(name = "idFournisseur", referencedColumnName = "idfournisseur")
-    private Fournisseur fournisseur;
+    @Column(name = "idfournisseur")
+    int idfournisseur;
 
     @ManyToOne
-    @JoinColumn(name = "idArticle", referencedColumnName = "idarticle")
+    @JoinColumn(name = "idfournisseur", insertable= false, updatable = false)
+    private Fournisseur fournisseur;
+
+    @Column(name = "idarticle")
+    int idarticle;
+
+    @ManyToOne
+    @JoinColumn(name = "idarticle", insertable= false, updatable = false)
     private Article article;
 
     @Column(name = "prixunitaire")
@@ -75,5 +81,21 @@ public class FournArticle {
 
     public void setQuantite(int quantite) {
         this.quantite = quantite;
+    }
+
+    public int getIdfournisseur() {
+        return idfournisseur;
+    }
+
+    public void setIdfournisseur(int idfournisseur) {
+        this.idfournisseur = idfournisseur;
+    }
+
+    public int getIdarticle() {
+        return idarticle;
+    }
+
+    public void setIdarticle(int idarticle) {
+        this.idarticle = idarticle;
     }
 }

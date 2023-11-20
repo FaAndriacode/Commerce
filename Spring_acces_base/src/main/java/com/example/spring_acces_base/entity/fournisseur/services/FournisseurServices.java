@@ -12,9 +12,9 @@ import java.util.List;
 public class FournisseurServices implements FournisseurRemote{
     @Autowired
     private FournisseurRepository fournisseurRepository;
-    
+
+    @Override
     public List<Fournisseur> findAll() {
-        return (List<Fournisseur>) fournisseurRepository.findAll();
+       return this.fournisseurRepository.findAll();
     }
-    
 }

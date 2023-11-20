@@ -1,9 +1,5 @@
 package com.example.spring_acces_base.controller.utils;
 
-import java.util.List;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.spring_acces_base.entity.article.Article;
-import com.example.spring_acces_base.entity.article.services.ArticleService;
+import com.example.spring_acces_base.entity.Article.Article;
+import com.example.spring_acces_base.entity.Article.services.ArticleService;
+import com.example.spring_acces_base.response.Response;
 
 @RestController
 @RequestMapping("/article")
@@ -25,25 +22,35 @@ public class ArticleController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Article>> getAllArticles() {
+    public Response getAllArticles() {
+         Response response = new Response();
         try {
-            List<Article> articles = articleService.getAllArticles();
-            return ResponseEntity.ok(articles);
+            response.setDonner(articleService.getAllArticles());
+            response.setErreur(false);
+            return response;
         } catch (Exception e) {
+            response.setErreur(true);
+            response.setDonner(null);
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return response;  
         }
     }
 
     @PostMapping("/insert")
-    public ResponseEntity<String> insertArticle(@RequestBody Article article) {
+    public Response insertArticle(@RequestBody Article article) {
+        Response response = new Response();
+        Object temp = null;
         try {
-            Article newArticle = articleService.insertArticle(article);
-            return ResponseEntity.ok("Article inserted successfully with ID: " + newArticle.getIdArticle());
+            temp = articleService.insertArticle(article);
+            response.setDonner(temp);
+            response.setErreur(false);
+            return response;
         } catch (Exception e) {
             // Log the exception for debugging
+            response.setErreur(true);
+            response.setDonner(null);
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error inserting Article");
+            return response;
         }
     }
 
