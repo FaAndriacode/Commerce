@@ -12,6 +12,7 @@
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="ajax/creationBesoin.js"></script>
 
 </head>
 
@@ -96,14 +97,10 @@
                     <div class="card mb-0">
                         <div class="card-body">
                             <p class="h1 text-center">Creation besoin</p>
-                            <form>
+                            <form id="formD">
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Article</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="1">Crayon</option>
-                                        <option value="2">Gomme</option>
-                                        <option value="3">Kofafa</option>
-                                    </select>
+                                    <select class="form-select" aria-label="Default select example" id="listeArticle"></select>
                                 </div>
                                 <div class="mb-4">
                                     <label for="exampleInputPassword1" class="form-label">Quantite</label>
@@ -118,7 +115,7 @@
                                         <a href="#" class="btn btn-secondary w-100 py-8 rounded-2">Annuler</a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="./index.html" class="btn btn-primary w-100 py-8 rounded-2">Valider</a>
+                                        <button onclick="validateArticle()" class="btn btn-primary w-100 py-8 rounded-2">Valider</button>
                                     </div>
                                 </div>
                                
@@ -131,6 +128,7 @@
         </div>
     </div>
 
+<script src="ajax/creationBesoin.js"></script>
 </body>
 
 </html>
