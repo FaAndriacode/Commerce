@@ -8,7 +8,7 @@ public class Postgres {
         Connection connect = null;
         try{
             Class.forName("org.postgresql.Driver");
-            connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stock","postgres","root");
+            connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/fournisseur","postgres","root");
             connect.setAutoCommit(false);
         }catch(Exception e){
             e.printStackTrace();
