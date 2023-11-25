@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.spring_acces_base.entity.Article.Article;
-import com.example.spring_acces_base.entity.Article.services.ArticleService;
+import com.example.spring_acces_base.entity.article.Article;
+import com.example.spring_acces_base.entity.article.services.ArticleService;
 import com.example.spring_acces_base.response.Response;
 
 @RestController

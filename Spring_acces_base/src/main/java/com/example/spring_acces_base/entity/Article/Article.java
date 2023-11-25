@@ -1,4 +1,4 @@
-package com.example.spring_acces_base.entity.Article;
+package com.example.spring_acces_base.entity.article;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

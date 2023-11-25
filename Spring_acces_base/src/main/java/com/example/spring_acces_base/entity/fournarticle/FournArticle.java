@@ -1,6 +1,6 @@
 package com.example.spring_acces_base.entity.fournarticle;
 
-import com.example.spring_acces_base.entity.Article.Article;
+import com.example.spring_acces_base.entity.article.Article;
 import com.example.spring_acces_base.entity.fournisseur.Fournisseur;
 
 import jakarta.persistence.Column;
