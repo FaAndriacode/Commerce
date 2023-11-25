@@ -14,7 +14,9 @@ CREATE TABLE etat (
 -- Création de la table "Magasin"
 CREATE TABLE Magasin (
     idmagasin INTEGER DEFAULT nextval('n_magasin') PRIMARY KEY,
-    nom VARCHAR(255)
+    nom VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
 );
 
 --creation de la table unitaire
@@ -25,7 +27,7 @@ CREATE TABLE unite (
 );
 
 -- Création de la table "Article"
-CREATE TABLE Article (
+CREATE TABLE Article_fournisseur (
     idArticle VARCHAR(255) PRIMARY KEY,
     nom VARCHAR(255),
     etat INTEGER,
@@ -92,12 +94,11 @@ CREATE TABLE sortie_valide (
     ('Sase', 50);
 
 -- Insertion de données de test dans la table "Magasin"
-INSERT INTO Magasin (nom)
+INSERT INTO Magasin (nom,email,password)
 VALUES
-    ('Magasin A'),
-    ('Magasin B'),
-    ('Magasin C'),
-    ('Magasin D');
+    ('Magasin A','escobarpabloo2802@gmail.com','fandresena'),
+    ('Magasin B','escobarpabloo2802@gmail.com','huhu'),
+    ('Magasin C','escobarpabloo2802@gmail.com','allo');
 
 -- Insertion de données de test dans la table "Article"
 INSERT INTO Article (idarticle, nom, etat, idequivalance)
