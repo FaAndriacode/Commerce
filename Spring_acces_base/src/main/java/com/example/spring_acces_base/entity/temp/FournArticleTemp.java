@@ -1,4 +1,4 @@
-package com.example.spring_acces_base.entity.boncommende;
+package com.example.spring_acces_base.entity.temp;
 
 import java.sql.Date;
 
@@ -16,14 +16,14 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "boncommande")
-public class BonCommande {
-    
+@Table(name = "fournarticletemp")
+public class FournArticleTemp {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "boncommande_sequence")
-    @SequenceGenerator(name = "boncommande_sequence", sequenceName = "n_idboncommande", allocationSize = 1)
-    @Column(name = "idboncommande")
-    int idboncommande;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fournarticle_sequence")
+    @SequenceGenerator(name = "fournarticle_sequence", sequenceName = "n_idfournarticletemp", allocationSize = 1)
+    @Column(name = "idfournarticle")
+    int idfournarticle;
+
 
     @Column(name = "idfournisseur")
     int idfournisseur;
@@ -40,7 +40,7 @@ public class BonCommande {
     private Article article;
 
     @Column(name = "prixunitaire")
-    double prixunitaire;
+    int prixunitaire;
 
     @Column(name = "quantite")
     double quantite;
@@ -48,20 +48,20 @@ public class BonCommande {
     @Column(name = "date")
     Date date;
 
-    public int getIdboncommande() {
-        return idboncommande;
+    public Date getDate() {
+        return date;
     }
 
-    public void setIdboncommande(int idboncommande) {
-        this.idboncommande = idboncommande;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public int getIdfournisseur() {
-        return idfournisseur;
+    public int getIdfournarticle() {
+        return idfournarticle;
     }
 
-    public void setIdfournisseur(int idfournisseur) {
-        this.idfournisseur = idfournisseur;
+    public void setIdfournarticle(int idfournarticle) {
+        this.idfournarticle = idfournarticle;
     }
 
     public Fournisseur getFournisseur() {
@@ -69,15 +69,7 @@ public class BonCommande {
     }
 
     public void setFournisseur(Fournisseur fournisseur) {
-        this.fournisseur = fournisseur;
-    }
-
-    public int getIdarticle() {
-        return idarticle;
-    }
-
-    public void setIdarticle(int idarticle) {
-        this.idarticle = idarticle;
+        this.fournisseur=fournisseur;
     }
 
     public Article getArticle() {
@@ -85,14 +77,14 @@ public class BonCommande {
     }
 
     public void setArticle(Article article) {
-        this.article = article;
+        this.article=article;
     }
 
-    public double getPrixunitaire() {
+    public int getPrixunitaire() {
         return prixunitaire;
     }
 
-    public void setPrixunitaire(double prixunitaire) {
+    public void setPrixunitaire(int prixunitaire) {
         this.prixunitaire = prixunitaire;
     }
 
@@ -104,12 +96,19 @@ public class BonCommande {
         this.quantite = quantite;
     }
 
-    public Date getDate() {
-        return date;
+    public int getIdfournisseur() {
+        return idfournisseur;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setIdfournisseur(int idfournisseur) {
+        this.idfournisseur = idfournisseur;
     }
-    
+
+    public int getIdarticle() {
+        return idarticle;
+    }
+
+    public void setIdarticle(int idarticle) {
+        this.idarticle = idarticle;
+    }
 }

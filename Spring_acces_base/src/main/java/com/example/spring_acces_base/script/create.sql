@@ -92,3 +92,14 @@ CREATE TABLE BonCommande (
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur),
     FOREIGN KEY (idArticle) REFERENCES Article(idArticle) 
 );
+
+CREATE VIEW v_boncommande AS 
+select
+boncommande.*,
+fournisseur.nom as nomfournisseur,
+fournisseur.adresse,
+article.nom,
+article.unite
+from boncommande
+join fournisseur on fournisseur.idfournisseur=boncommande.idfournisseur
+join article on article.idarticle=boncommande.idarticle;
