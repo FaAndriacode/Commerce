@@ -13,8 +13,9 @@ public class ArticleService implements ArticleRemote {
     @Autowired
     private ArticleRepository articleRepository;
 
-    public List<Article> getAllArticles() {
-        return (List<Article>) articleRepository.findAll();
+    @Override
+    public List<Article> findAll() {
+        return this.articleRepository.findAll();
     }
 
     public Article insertArticle(Article article) {

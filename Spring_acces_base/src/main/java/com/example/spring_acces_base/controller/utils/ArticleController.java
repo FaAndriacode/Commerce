@@ -23,17 +23,16 @@ public class ArticleController {
 
     @GetMapping("/all")
     public Response getAllArticles() {
-         Response response = new Response();
-        try {
-            response.setDonner(articleService.getAllArticles());
-            response.setErreur(false);
-            return response;
-        } catch (Exception e) {
-            response.setErreur(true);
-            response.setDonner(null);
-            e.printStackTrace();
-            return response;  
-        }
+        Response response = new Response();
+        Object temp = null;
+
+        System.out.println("👉 Demande liste de article");
+        
+        temp = this.articleService.findAll();
+        response.setDonner(temp);
+        response.setErreur(false);
+        
+        return response;
     }
 
     @PostMapping("/insert")

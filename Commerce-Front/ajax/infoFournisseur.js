@@ -21,7 +21,7 @@ function populateArticleDropdown() {
 
 
     function populateFournisseurDropdown() {
-        var fournisseurSelect = document.getElementById("fournisseurSelect ");
+        var fournisseurSelect = document.getElementById("fournisseurSelect");
 
         // Make an API call to get the article data
         fetch('http://localhost:8080/article/all') // Assuming you have an endpoint to get all articles

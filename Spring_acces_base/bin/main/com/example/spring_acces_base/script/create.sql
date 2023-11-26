@@ -58,11 +58,37 @@ CREATE TABLE Article (
 
 -- Création de la table "FournArticle"
 CREATE TABLE FournArticle (
-    idfournarticle INTEGER DEFAULT nextval('n_idArticle') PRIMARY KEY,
+    idfournarticle INTEGER DEFAULT nextval('n_idFournarticle') PRIMARY KEY,
     idFournisseur INTEGER,
     idArticle INTEGER,
     prixunitaire DOUBLE PRECISION,
     Quantite DOUBLE PRECISION,
+    date date,
     FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur),
     FOREIGN KEY (idArticle) REFERENCES Article(idArticle)
+);
+
+CREATE TABLE FournArticleTemp (
+    idfournarticle INTEGER DEFAULT nextval('n_idFournarticletemp') PRIMARY KEY,
+    idFournisseur INTEGER,
+    idArticle INTEGER,
+    prixunitaire DOUBLE PRECISION,
+    Quantite DOUBLE PRECISION,
+    date date,
+    FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur),
+    FOREIGN KEY (idArticle) REFERENCES Article(idArticle)
+);
+
+INSERT INTO FournArticleTemp
+SELECT * FROM FournArticle;
+
+CREATE TABLE BonCommande (
+    idboncommande INTEGER DEFAULT nextval('n_idBoncommande') PRIMARY KEY,
+    idArticle INTEGER,
+    idFournisseur INTEGER,
+    prixunitaire DOUBLE PRECISION,
+    Quantite DOUBLE PRECISION,
+    date date,
+    FOREIGN KEY (idFournisseur) REFERENCES Fournisseur(idFournisseur),
+    FOREIGN KEY (idArticle) REFERENCES Article(idArticle) 
 );

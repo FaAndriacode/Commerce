@@ -1,6 +1,6 @@
 package com.example.spring_acces_base.entity.fournarticle.services;
 
-import java.util.List;
+import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +17,20 @@ public class FournArticleService implements FournArticleRemote{
         return fournarticleRepository.save(fournarticle);
     }
 
-    public List<FournArticle> findByMultipleConditions(){
-        return fournarticleRepository.findByMultipleConditions(1);
+    public FournArticle findByMultipleConditions(int idarticle, Date date){
+        return fournarticleRepository.findByMultipleConditions(idarticle, date);
+    }
+
+    public void deleteAllTempRecords(){
+        fournarticleRepository.deleteAllTempRecords();
+    }
+
+    public void copyDataToTempTable(){
+        fournarticleRepository.copyDataToTempTable();
+    }
+
+    public void updateQuantite(int idfournarticle, double quantite){
+        fournarticleRepository.updateQuantite(idfournarticle, quantite);
     }
 
 }
