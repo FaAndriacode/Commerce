@@ -1,6 +1,8 @@
 package com.example.spring_acces_base.entity.fournarticle;
 
-import com.example.spring_acces_base.entity.Article.Article;
+import java.sql.Date;
+
+import com.example.spring_acces_base.entity.article.Article;
 import com.example.spring_acces_base.entity.fournisseur.Fournisseur;
 
 import jakarta.persistence.Column;
@@ -41,7 +43,18 @@ public class FournArticle {
     int prixunitaire;
 
     @Column(name = "quantite")
-    int quantite;
+    double quantite;
+
+    @Column(name = "date")
+    Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public int getIdfournarticle() {
         return idfournarticle;
@@ -75,11 +88,11 @@ public class FournArticle {
         this.prixunitaire = prixunitaire;
     }
 
-    public int getQuantite() {
+    public double getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(int quantite) {
+    public void setQuantite(double quantite) {
         this.quantite = quantite;
     }
 
