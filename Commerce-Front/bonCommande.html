@@ -12,7 +12,47 @@
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="ajax/infoFournisseur.js"></script>
+    <script src="ajax/bonCommande.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #total {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        #footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 
 </head>
 
@@ -96,41 +136,21 @@
                     <div class="col-md-8 col-lg-6 col-xxl-3">
                     <div class="card mb-0">
                         <div class="card-body">
-                            <p class="h1 text-center">Information Article/Fournisseur</p>
+                            <p class="h1 text-center">Voir Bon De Commande</p>
                             <form>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Fournisseur</label>
-                                    <select class="form-select" aria-label="Default select example" id="fournisseurSelect">
-                                        <!-- Fournisseur options here -->
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Article</label>
-                                    <select class="form-select" aria-label="Default select example" id="articleSelect">
-                                        <!-- Article options will be populated dynamically -->
-                                    </select>
-                                </div>
                                 <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label">Quantite</label>
-                                    <input type="text" class="form-control" id="quantite">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label">Prix Hors Taxe</label>
-                                    <input type="text" class="form-control" id="prixunitaire">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label">Date</label>
+                                    <label for="exampleInputPassword1" class="form-label">Choisir Le Mois</label>
                                     <input type="date" class="form-control" id="date">
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-secondary w-100 py-8 rounded-2">Annuler</button>
-                                    </div>
                                     <div class="col-md-6">
                                         <button type="button" class="btn btn-primary w-100 py-8 rounded-2" onclick="submitForm()">Valider</button>
                                     </div>
                                 </div>
                             </form>
+
+                            
+
                         </div>
                     </div>
                     </div>
@@ -139,7 +159,40 @@
         </div>
     </div>
 
-<script src="ajax/creationBesoin.js"></script>
+    <div id="container">
+        <h2>Bon de Commande</h2>
+
+        <div>
+            <strong>Fournisseur:</strong> Fournisseur A<br>
+            <strong>Date de tirage:</strong> 2023-11-26
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Designation</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+            "001 Produit 1 2 10.00"
+        <div id="total">
+            <strong>Sous-total:</strong> 35.00<br>
+            <strong>Taxes:</strong> 3.50<br>
+            <strong>Livraison:</strong> 5.00<br>
+            <strong>TOTAL DE LA COMMANDE:</strong> 43.50
+        </div>
+
+        <div id="footer">
+            <p>Conditions de paiement: Paiement à réception de la facture.</p>
+            <p>Conditions générales: Les produits seront expédiés dans les 3 jours ouvrables.</p>
+        </div>
+    </div>
+    
 </body>
 
 </html>
