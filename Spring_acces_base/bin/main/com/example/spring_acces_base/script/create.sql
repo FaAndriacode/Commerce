@@ -103,3 +103,5 @@ article.unite
 from boncommande
 join fournisseur on fournisseur.idfournisseur=boncommande.idfournisseur
 join article on article.idarticle=boncommande.idarticle;
+
+select * from v_boncommande where extract(month from date) = extract(month from CAST('2023-11-28' AS timestamp));

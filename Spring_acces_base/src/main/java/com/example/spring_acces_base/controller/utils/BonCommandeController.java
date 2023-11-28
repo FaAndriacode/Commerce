@@ -2,6 +2,7 @@ package com.example.spring_acces_base.controller.utils;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.spring_acces_base.entity.besoin.Besoin;
 import com.example.spring_acces_base.entity.besoin.services.BesoinService;
 import com.example.spring_acces_base.entity.boncommende.BonCommande;
+import com.example.spring_acces_base.entity.boncommende.VBonCommande;
 import com.example.spring_acces_base.entity.boncommende.services.BonCommandeService;
 import com.example.spring_acces_base.entity.temp.FournArticleTemp;
 import com.example.spring_acces_base.entity.temp.services.FournArticleTempService;
+import com.example.spring_acces_base.response.Response;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
@@ -46,17 +49,22 @@ public class BonCommandeController {
     }
 
     @PostMapping("/calcul")
-    public ResponseEntity<String> calculBonCommande(@RequestParam String date) {
+    public Response calculBonCommande(@RequestParam String date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Response response = new Response();
         try {
             java.util.Date utilDate = dateFormat.parse(date);
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             calculBonCommande(sqlDate);
-            return ResponseEntity.ok("Calculation successful"); // Or any other success message
+            List<List<VBonCommande>> lbc = getBonCommande(sqlDate); 
+
+            Object temp = lbc;
+            response.setDonner(temp);
+            response.setErreur(false);
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Calculation failed"); // Or any other error message
         }
+        return response;
     }
 
     public void calculBonCommande(Date date){
@@ -129,6 +137,43 @@ public class BonCommandeController {
         } catch (NoResultException e) {
             return null;
         }
+    }
+
+    public List<List<VBonCommande>> getBonCommande(Date targetDate){
+
+        Response response = new Response();
+        Object temp = null;
+
+        String sqlQuery = "SELECT * from v_boncommande where extract(month from date) = extract(month from CAST(:targetDate AS timestamp)) AND idfournisseur=1";
+        
+        Query query = entityManager.createNativeQuery(sqlQuery, VBonCommande.class);
+        query.setParameter("targetDate", targetDate);
+
+        String sqlQuery2 = "SELECT * from v_boncommande where extract(month from date) = extract(month from CAST(:targetDate AS timestamp)) AND idfournisseur=2";
+        
+        Query query2 = entityManager.createNativeQuery(sqlQuery2, VBonCommande.class);
+        query2.setParameter("targetDate", targetDate);
+
+        String sqlQuery3 = "SELECT * from v_boncommande where extract(month from date) = extract(month from CAST(:targetDate AS timestamp)) AND idfournisseur=3";
+        
+        Query query3 = entityManager.createNativeQuery(sqlQuery3, VBonCommande.class);
+        query3.setParameter("targetDate", targetDate);
+
+        List<VBonCommande> un = query.getResultList();
+        List<VBonCommande> deux = query2.getResultList();
+        List<VBonCommande> trois = query3.getResultList();
+
+        List<List<VBonCommande>> bc = new ArrayList<>();
+        bc.add(un);
+        bc.add(deux);
+        bc.add(trois);
+
+        try {
+            return bc;
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
 }
