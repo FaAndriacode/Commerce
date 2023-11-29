@@ -9,6 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import utilitaire.NombreEnLettres;
 
 @Entity
 @Table(name = "vboncommande")
@@ -50,7 +52,21 @@ public class VBonCommande{
     @Column(name = "total_final")
     double total_final;
 
+    @Transient
+    String lettre;
+
+    public String getLettre() {
+        return lettre;
+    }
+
+    public void setLettre(String lettre) {
+        this.lettre = lettre;
+    }
+
     public double getTotal_final() {
+        NombreEnLettres nel = new NombreEnLettres();
+        this.lettre = nel.convertirEnLettres(this.total_final);
+        System.out.println("LETREEEEEEEEEEEEEEEEEEEEEEEE get = "+this.lettre);
         return total_final;
     }
 

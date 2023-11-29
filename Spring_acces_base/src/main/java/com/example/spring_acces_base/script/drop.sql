@@ -20,5 +20,7 @@ DROP SEQUENCE IF EXISTS n_idArticle;
 DROP SEQUENCE IF EXISTS n_idFournarticle;
 DROP SEQUENCE IF EXISTS n_idBoncommande;
 
+DROP VIEW IF EXISTS v_boncommande;
+
 DROP TABLE IF EXISTS BonCommande;
 DROP SEQUENCE IF EXISTS n_idBoncommande;
