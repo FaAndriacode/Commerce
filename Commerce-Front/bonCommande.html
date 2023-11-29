@@ -142,6 +142,20 @@
                                     <label for="exampleInputPassword1" class="form-label">Choisir Le Mois</label>
                                     <input type="date" class="form-control" id="date">
                                 </div>
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label">Livraison partielle</label>
+                                    <select class="form-select" aria-label="Default select example" id="livraison">
+                                        <option value="oui">Oui</option>
+                                        <option value="non">Non</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label">Mode paiement</label>
+                                    <select class="form-select" aria-label="Default select example" id="paiement">
+                                        <option value="cheque">Cheque</option>
+                                        <option value="virement">Virement</option>
+                                    </select>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <button type="button" class="btn btn-primary w-100 py-8 rounded-2" onclick="submitForm()">Valider</button>
@@ -160,7 +174,7 @@
     </div>
 
     <div id="container">
-        <h2>Bon de Commande</h2>
+        <!-- <h2>Bon de Commande</h2>
 
         <div>
             <strong>Fournisseur:</strong> Fournisseur A<br>
@@ -177,9 +191,14 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <th>Produit 1</th>
+                    <th>2</th>
+                    <th>10.00</th>
+                    <th>200</th>
+                </tr>
             </tbody>
         </table>
-            "001 Produit 1 2 10.00"
         <div id="total">
             <strong>Sous-total:</strong> 35.00<br>
             <strong>Taxes:</strong> 3.50<br>
@@ -190,7 +209,7 @@
         <div id="footer">
             <p>Conditions de paiement: Paiement à réception de la facture.</p>
             <p>Conditions générales: Les produits seront expédiés dans les 3 jours ouvrables.</p>
-        </div>
+        </div> -->
     </div>
     
 </body>
