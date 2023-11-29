@@ -1,7 +1,5 @@
 package com.example.spring_acces_base.controller.utils;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring_acces_base.entity.fournarticle.FournArticle;
 import com.example.spring_acces_base.entity.fournarticle.services.FournArticleService;
+import com.example.spring_acces_base.response.Response;
 
 @RestController
 @RequestMapping("/fournarticle")
@@ -22,14 +21,17 @@ public class FournArticleController {
     }
 
     @PostMapping("/insert")
-    public ResponseEntity<String> insertArticle(@RequestBody FournArticle fournarticle) {
+    public Response insertArticle(@RequestBody FournArticle fournarticle) {
+        Response response = new Response();
         try {
-            FournArticle newFournArticle = fournarticleService.insertFournArticle(fournarticle);
-            return ResponseEntity.ok("FaournArticle inserted successfully with ID : "+newFournArticle.getIdfournarticle());
+            response.setDonner(fournarticleService.insertFournArticle(fournarticle));
+            response.setErreur(false);
+            return response;
         } catch (Exception e) {
-            // Log the exception for debugging
+            response.setDonner(null);
+            response.setErreur(true);
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error inserting Article");
+            return response;
         }
     }
 
