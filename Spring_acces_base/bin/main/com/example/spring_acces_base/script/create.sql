@@ -95,11 +95,19 @@ CREATE TABLE BonCommande (
 
 CREATE VIEW v_boncommande AS 
 select
-boncommande.*,
+boncommande.idboncommande,
+boncommande.idArticle,
+boncommande.idFournisseur,
+boncommande.prixunitaire,
+boncommande.Quantite,
+boncommande.date,
 fournisseur.nom as nomfournisseur,
 fournisseur.adresse,
 article.nom,
-article.unite
+article.unite,
+((prixunitaire*20)/100) as pht,
+(prixunitaire*quantite) as total,
+(select SUM(prixunitaire*quantite) from boncommande where idfournisseur=fournisseur.idFournisseur) as total_final
 from boncommande
 join fournisseur on fournisseur.idfournisseur=boncommande.idfournisseur
 join article on article.idarticle=boncommande.idarticle;
