@@ -22,8 +22,9 @@
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="entre.html"><i class="far fa-user-circle"></i><span>entre</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="sorti.html"><i class="fas fa-user-circle"></i><span>Sortie</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="mail.html"><i class="fas fa-user-circle"></i><span>Envoyer un email</span></a></li>                </ul>
-                    <li class="nav-item"><a class="nav-link" href="sortie.html"><i class="fas fa-user-circle"></i><span>Sortie</span></a></li>                </ul>
+                </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
         </nav>
@@ -127,32 +128,19 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4 border p-3">
                             <div class="error" data-text="Entre">
-                                <p class="m-0">Entre</p>
+                                <p class="m-0">Mailing</p>
                             </div>
-                            <form action="InsertEntrer">
+                            <form action="#">
                                 <div class="form-group mb-3">
-                                    <label for="gender">Article</label>
-                                    <select class="form-control" name="article" id="article">
+                                    <label for="email">Email du client</label>
+                                    <input type="text" name="mail" class="form-control" id="date" placeholder="email du client">
                                     </select>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="email">Date</label>
-                                    <input type="date" name="date" class="form-control" id="date" placeholder="Date">
+                                    <label for="email">Pièce jointe</label>
+                                    <input type="file" name="pj" class="form-control" id="date" placeholder="Date">
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="password">Quantite</label>
-                                    <input type="text" name="quantite" class="form-control" id="quantite" placeholder="quantite">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="gender">Unite</label>
-                                    <select class="form-control" name="unite" id="unite">
-                                    </select>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="password">Prix Unitaire</label>
-                                    <input type="text" name="prix" class="form-control" id="prix" placeholder="prix unitaire">
-                                </div>
-                                
+
                                 <div class="d-grid gap-2 col-6 mx-auto">
                                     <button class="btn btn-primary" type="submit">Valider</button>
                                 </div>

@@ -23,6 +23,8 @@
                     <li class="nav-item"><a class="nav-link active" href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="entre.html"><i class="far fa-user-circle"></i><span>Entre</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Sortie</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="mail.html"><i class="fas fa-user-circle"></i><span>Envoyer un email</span></a></li>                </ul>
+
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -125,6 +127,8 @@
                 </nav>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Stock</h3>
+                    <button class="text-dark mb-4" id="downloadpdf">Télécharger au format PDF</button>
+
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Liste Article</p>
@@ -156,9 +160,13 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+    <script src="assets/js/jspdf.debug.js"></script>
+    <script src="assets/js/html2canvas.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/pdf.js"></script>
+
 </body>
 
 </html>
