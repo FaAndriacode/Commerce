@@ -13,7 +13,7 @@ document.getElementById('downloadpdf').addEventListener('click', function() {
        }).then(function(canvas) {
         // Utiliser canvas.toDataURL() pour obtenir une URL de données de l'image
         var dataUrl = canvas.toDataURL();
-        document.body.appendChild(canvas);
+        //document.body.appendChild(canvas);
         // Créer un nouveau document PDF avec jsPDF
         var doc = new jsPDF();
        
