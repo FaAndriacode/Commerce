@@ -1,3 +1,5 @@
+DROP VIEW IF EXISTS v_boncommande;
+
 --drop table
 DROP TABLE IF EXISTS FournArticle;
 DROP TABLE IF EXISTS Besoin;
@@ -21,8 +23,3 @@ DROP SEQUENCE IF EXISTS n_idArticle;
 DROP SEQUENCE IF EXISTS n_idFournarticle;
 DROP SEQUENCE IF EXISTS n_idBoncommande;
 DROP SEQUENCE IF EXISTS n_idFournarticletemp;
-
-DROP VIEW IF EXISTS v_boncommande;
-
-DROP TABLE IF EXISTS BonCommande;
-DROP SEQUENCE IF EXISTS n_idBoncommande;

@@ -1,28 +1,19 @@
 document.getElementById('downloadpdf').addEventListener('click', function() {
-    var element = document.getElementById('.content-wrapper');
-
-    var element = document.getElementById('content-wrapper');
-    console.log('W:'+element.scrollWidth);
-    //element.style.width = '1200px';
-    //element.style.height = '100%';
-    //console.log('W:'+element.scrollWidth);
-
-    html2canvas(element, {
-        foreignObjectRendering: true,
-        
-       }).then(function(canvas) {
-        // Utiliser canvas.toDataURL() pour obtenir une URL de données de l'image
-        var dataUrl = canvas.toDataURL();
-        //document.body.appendChild(canvas);
-        // Créer un nouveau document PDF avec jsPDF
-        var doc = new jsPDF();
-       
-        // Ajouter l'image au document PDF
-        doc.addImage(dataUrl, 'JPEG', 0, 0);
-       
-        // Sauvegarder le document PDF
-        var timestamp = new Date().toISOString();
-        doc.save('stock' + timestamp + '.pdf');
-    });
-       
-  });
+    // Create a new jsPDF instance
+    window.jsPDF = window.jspdf.jsPDF;
+    const doc = new jsPDF('l', 'mm', 'a4'); // Définir la page en mode paysage
+  
+    // Get the content of the PHP page
+    const content = document.querySelector('#expo');
+  
+    // Generate the PDF using jsPDF
+    doc.html(content, {
+      callback: function(doc) {
+        doc.save('exported_pdf.pdf');
+      },
+      x: 25,
+      y: 5,
+      width: 240, // Ajuster la largeur de la zone de contenu en mode paysage
+      windowWidth: 1200
+    });  
+});

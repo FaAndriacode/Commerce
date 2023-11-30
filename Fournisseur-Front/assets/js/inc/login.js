@@ -13,7 +13,7 @@ document.getElementById("loginButton").addEventListener("click", function () {
             let value = JSON.parse(xhr.responseText)
             if(value.erreur == false){
                 localStorage.setItem('id',value.donner.idMagasin)
-                window.location.href = "dashbord.html";
+                window.location.href = "table.html";
             }else{
                 alert.innerHTML = alertNotification(value.information);
             }

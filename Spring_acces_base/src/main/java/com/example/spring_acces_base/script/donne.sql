@@ -38,17 +38,15 @@ INSERT INTO Article (nom,unite) VALUES
 INSERT INTO Besoin (idArticle, Quantite, Date_creation, etat, idServices) VALUES
 (1, 10, '2023-11-18', 1, 1),
 (2, 15, '2023-11-18', 2, 2),
-(3, 20, '2023-11-18', 1, 3);
-
-INSERT INTO Besoin (idArticle, Quantite, Date_creation, etat, idServices) VALUES
+(3, 20, '2023-11-18', 1, 3),
 (1, 10, '2023-11-18', 3, 1),
 (2, 15, '2023-11-18', 3, 2),
 (3, 20, '2023-11-18', 3, 3);
 
--- Exemples de données pour la table "FournArticle"
-INSERT INTO FournArticle (idFournisseur, idArticle, prixunitaire, Quantite) VALUES
-(1, 1, 50.0, 20),
-(2, 1, 23.0, 15),
-(1, 2, 30.0, 26),
-(2, 2, 25.0, 100),
-(3, 2, 12.0, 30);
+INSERT INTO FournArticle (idFournisseur, idArticle, prixunitaire, Quantite ,date) VALUES
+(1, 1, 1000, 2, '2023-11-18'),
+(1, 2, 2000, 20, '2023-11-18'),
+(1, 3, 3000, 20, '2023-11-18'),
+(2, 1, 1500, 8, '2023-11-18'),
+(2, 2, 1800, 20,'2023-11-18'),
+(3, 3, 1000, 40,'2023-11-18');
