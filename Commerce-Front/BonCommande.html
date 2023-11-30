@@ -1,0 +1,45 @@
+<div id="container">
+    <h2>Bon de Commande</h2>
+    
+    <!-- Boucle sur les résultats de la requête -->
+    <div th:each="bonCommande : ${bonCommandes}">
+        <div>
+            <strong>Numéro de commande:</strong> <span th:text="${bonCommande.idboncommande}"></span><br>
+            <strong>Date de commande:</strong> <span th:text="${bonCommande.date}"></span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Description du produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les détails de la commande -->
+                <tr th:each="detail : ${bonCommande.details}">
+                    <td th:text="${detail.idarticle}"></td>
+                    <td th:text="${detail.nom}"></td>
+                    <td th:text="${detail.quantite}"></td>
+                    <td th:text="${detail.prixunitaire}"></td>
+                    <td th:text="${detail.prixunitaire * detail.quantite}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="total">
+            <strong>Sous-total:</strong> <span th:text="${bonCommande.sousTotal}"></span><br>
+            <strong>Taxes:</strong> <span th:text="${bonCommande.taxes}"></span><br>
+            <strong>Livraison:</strong> <span th:text="${bonCommande.fraisLivraison}"></span><br>
+            <strong>TOTAL DE LA COMMANDE:</strong> <span th:text="${bonCommande.total}"></span>
+        </div>
+
+        <div id="footer">
+            <p>Conditions de paiement: Paiement à réception de la facture.</p>
+            <p>Conditions générales: Les produits seront expédiés dans les 3 jours ouvrables.</p>
+        </div>
+    </div>
+</div>

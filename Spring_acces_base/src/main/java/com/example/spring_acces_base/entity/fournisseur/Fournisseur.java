@@ -1,3 +1,4 @@
+
 package com.example.spring_acces_base.entity.fournisseur;
 
 import jakarta.persistence.Column;

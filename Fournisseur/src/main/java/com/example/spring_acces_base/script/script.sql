@@ -1,3 +1,4 @@
+
 CREATE sequence n_magasin ;
 CREATE SEQUENCE n_idsortie ;
 CREATE SEQUENCE n_idEntre ;
@@ -27,7 +28,7 @@ CREATE TABLE unite (
 );
 
 -- Création de la table "Article"
-CREATE TABLE Article_fournisseur (
+CREATE TABLE Article (
     idArticle VARCHAR(255) PRIMARY KEY,
     nom VARCHAR(255),
     etat INTEGER,
