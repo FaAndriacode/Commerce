@@ -64,8 +64,7 @@ public class VBonCommande{
     }
 
     public double getTotal_final() {
-        NombreEnLettres nel = new NombreEnLettres();
-        this.lettre = nel.convertirEnLettres(this.total_final);
+        this.lettre = NombreEnLettres.convertirEnLettres(this.total_final);
         System.out.println("LETREEEEEEEEEEEEEEEEEEEEEEEE get = "+this.lettre);
         return total_final;
     }

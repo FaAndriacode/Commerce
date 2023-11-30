@@ -30,9 +30,10 @@ window.addEventListener("load",function(){
                 var value = JSON.parse(xhr.responseText);
                 if(value.erreur == false){
                     console.log("Success ",value);
-                    if(etat === 1){//chef de departement
-                        window.location.href = "darhbord.html";
-                    }else if (etat === 0) {//chef de services
+                    console.log("etat ",etat);
+                    if(etat == 1){//chef de departement
+                        window.location.href = "dashbord.html";
+                    }else if (etat == 0) {//chef de services
                         window.location.href = "creationBesoin.html";
                     }
                 }else if(value.erreur == true){

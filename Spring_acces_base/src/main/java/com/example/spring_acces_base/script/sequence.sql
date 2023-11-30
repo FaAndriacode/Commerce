@@ -8,5 +8,4 @@ CREATE SEQUENCE n_idArticle;
 CREATE SEQUENCE n_idFournarticle;
 CREATE SEQUENCE n_idFournarticletemp;
 CREATE SEQUENCE n_idBoncommande;
-
 CREATE SEQUENCE n_idFournarticletemp;

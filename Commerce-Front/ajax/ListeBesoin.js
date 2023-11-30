@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
     var urlParams = new URLSearchParams(window.location.search);
 
     // Récupération des valeurs des paramètres
-    etat = urlParams.get('etat');
+    etat = this.localStorage.getItem('id');
     liste = this.document.getElementById('listeBesoin')
 
     // Envoi de la requête GET avec les paramètres dans l'URL

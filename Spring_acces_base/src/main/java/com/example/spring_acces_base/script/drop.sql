@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS Services;
 DROP TABLE IF EXISTS Departement;
 DROP TABLE IF EXISTS BonCommande;
 
+
 --drop sequences
 DROP SEQUENCE IF EXISTS n_idDept;
 DROP SEQUENCE IF EXISTS n_idServices;
@@ -19,6 +20,7 @@ DROP SEQUENCE IF EXISTS n_idBesoin;
 DROP SEQUENCE IF EXISTS n_idArticle;
 DROP SEQUENCE IF EXISTS n_idFournarticle;
 DROP SEQUENCE IF EXISTS n_idBoncommande;
+DROP SEQUENCE IF EXISTS n_idFournarticletemp;
 
 DROP VIEW IF EXISTS v_boncommande;
 

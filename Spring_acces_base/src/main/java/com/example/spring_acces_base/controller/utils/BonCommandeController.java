@@ -5,8 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -140,9 +138,6 @@ public class BonCommandeController {
     }
 
     public List<List<VBonCommande>> getBonCommande(Date targetDate){
-
-        Response response = new Response();
-        Object temp = null;
 
         String sqlQuery = "SELECT * from v_boncommande where extract(month from date) = extract(month from CAST(:targetDate AS timestamp)) AND idfournisseur=1";
         
